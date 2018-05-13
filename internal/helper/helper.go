@@ -10,5 +10,4 @@ func FailOnError(err error, msg string) {
 		log.Fatalf("%s %s", msg, err)
 		panic(fmt.Sprintf("%s %s", msg, err))
 	}
-	log.Println("All Good")
 }
