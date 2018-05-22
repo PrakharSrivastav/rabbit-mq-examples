@@ -17,8 +17,8 @@ func OpenChannel(conn *amqp.Connection) *amqp.Channel {
 	return ch
 }
 
-func DeclareQueue(channel *amqp.Channel) amqp.Queue {
-	q, err := channel.QueueDeclare("local", false, false, false, false, nil)
+func DeclareQueue(channel *amqp.Channel, queue string) amqp.Queue {
+	q, err := channel.QueueDeclare(queue, false, false, false, false, nil)
 	helper.FailOnError(err, "Failed to create a queue")
 	return q
 }

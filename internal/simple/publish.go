@@ -16,7 +16,7 @@ func main() {
 	channel := connection.OpenChannel(conn)
 	defer channel.Close()
 
-	q := connection.DeclareQueue(channel)
+	q := connection.DeclareQueue(channel, "local-queue")
 
 	body := "This is the message body3"
 	err := channel.Publish("", q.Name, false, false, amqp.Publishing{

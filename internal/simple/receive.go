@@ -13,7 +13,7 @@ func main() {
 	channel := connection.OpenChannel(conn)
 	defer channel.Close()
 
-	msgs := connection.Consume(channel, connection.DeclareQueue(channel))
+	msgs := connection.Consume(channel, connection.DeclareQueue(channel, "local-queue"))
 
 	forever := make(chan bool)
 	go func() {
